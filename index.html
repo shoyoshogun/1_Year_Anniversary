@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<title>Feliz Primer Aniversario ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+body.cover-active {
+    overflow: hidden;
+}
+
+button {
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* =========================================
+   PORTADA
+========================================= */
+
+#coverPage {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background:
+        radial-gradient(
+            ellipse at 50% 35%,
+            #390e20 0%,
+            #16040b 42%,
+            #000 85%
+        );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    padding: 25px 15px;
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+#coverPage.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.cover-content {
+    width: min(100%, 540px);
+    margin: auto;
+    padding: 15px 10px 25px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: coverAppear 1.4s ease both;
+}
+
+.cover-small-title {
+    color: #ffb4c5;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 17px;
+}
+
+.cover-content h1 {
+    color: #ffb1c0;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: clamp(32px, 6vw, 54px);
+    line-height: 1.12;
+    margin: 0 0 13px;
+    text-shadow: 0 0 22px #ff426888;
+}
+
+.cover-content h1 span {
+    display: block;
+    color: #fff1f4;
+}
+
+.cover-subtitle {
+    color: #ffd9e2;
+    font-size: clamp(14px, 2vw, 17px);
+    line-height: 1.7;
+    margin: 0 0 24px;
+}
+
+/* FOTO */
+
+.photo-frame {
+    display: inline-block;
+    margin: 0 auto 23px;
+    padding: 7px;
+    background: linear-gradient(
+        135deg,
+        #ffb4c5,
+        #ff416c,
+        #a12348,
+        #ffb4c5
+    );
+    border-radius: 22px;
+    box-shadow:
+        0 0 20px #ff4f7755,
+        0 0 55px #ff2a5030;
+    position: relative;
+}
+
+#coverImage {
+    display: block;
+    width: clamp(230px, 72vw, 340px);
+    max-width: 100%;
+    height: auto;
+    max-height: 43vh;
+    max-height: 43dvh;
+    object-fit: cover;
+    border-radius: 16px;
+    background: #12050a;
+}
+
+.photo-heart {
+    position: absolute;
+    bottom: -17px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #ff4769;
+    font-size: 22px;
+    box-shadow: 0 0 20px #ff476999;
+}
+
+.anniversary-count {
+    margin: 26px 0 6px;
+    font-family: Georgia, serif;
+    color: #ffc0ce;
+    font-size: clamp(20px, 4vw, 27px);
+}
+
+.anniversary-message {
+    color: #ffdfe6;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+/* BOTÓN */
+
+#openGiftBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 50px;
+    padding: 15px 35px;
+    background: linear-gradient(
+        135deg,
+        #ff4568,
+        #db2852
+    );
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 0 24px #ff416c77;
+    animation: buttonPulse 2.5s infinite;
+    transition: transform .2s;
+}
+
+#openGiftBtn:hover {
+    transform: scale(1.06);
+}
+
+/* CORAZONES FLOTANTES */
+
+.floating-hearts {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.floating-hearts span {
+    position: absolute;
+    bottom: -60px;
+    color: #ff5a81;
+    opacity: 0;
+    animation: floatHeart linear infinite;
+}
+
+.floating-hearts span:nth-child(1) {
+    left: 8%;
+    font-size: 24px;
+    animation-duration: 14s;
+    animation-delay: 0s;
+}
+
+.floating-hearts span:nth-child(2) {
+    left: 21%;
+    font-size: 15px;
+    animation-duration: 18s;
+    animation-delay: 4s;
+}
+
+.floating-hearts span:nth-child(3) {
+    left: 75%;
+    font-size: 25px;
+    animation-duration: 16s;
+    animation-delay: 2s;
+}
+
+.floating-hearts span:nth-child(4) {
+    left: 91%;
+    font-size: 17px;
+    animation-duration: 20s;
+    animation-delay: 6s;
+}
+
+.floating-hearts span:nth-child(5) {
+    left: 43%;
+    font-size: 12px;
+    animation-duration: 19s;
+    animation-delay: 8s;
+}
+
+.floating-hearts span:nth-child(6) {
+    left: 62%;
+    font-size: 20px;
+    animation-duration: 17s;
+    animation-delay: 10s;
+}
+
+/* =========================================
+   EXPERIENCIA PRINCIPAL
+========================================= */
+
+#mainPage {
+    display: none;
+    min-height: 100vh;
+}
+
+#mainPage.open {
+    display: block;
+}
+
+.heart-stage {
+    position: relative;
+    width: 100%;
+    height: 88vh;
+    height: 88dvh;
+    min-height: 430px;
+}
+
+#canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* NOTAS */
+
+.love-note {
+    position: absolute;
+    top: 50%;
+    width: 25%;
+    padding: 12px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50%) scale(0.9);
+    transition:
+        opacity 2.5s ease,
+        transform 2.5s ease,
+        visibility 2.5s;
+    pointer-events: none;
+    z-index: 5;
+    overflow-wrap: break-word;
+}
+
+.love-note.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) scale(1);
+}
+
+#loveNote {
+    left: 3%;
+}
+
+#rightLoveNote {
+    right: 3%;
+}
+
+.love-note h2 {
+    color: #ff7a87;
+    font-size: clamp(17px, 2vw, 25px);
+    margin-bottom: 15px;
+    text-shadow: 0 0 12px #ff3344;
+}
+
+.love-note p {
+    color: #ffe2e6;
+    font-size: clamp(12px, 1.2vw, 16px);
+    line-height: 1.9;
+    text-shadow: 0 0 8px #ff3344;
+}
+
+/* CONTROLES */
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px 15px 35px;
+}
+
+.controls button {
+    background: #ff354a;
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-size: 14px;
+    box-shadow: 0 0 14px #ff334466;
+    min-width: 140px;
+}
+
+.controls button:hover {
+    background: #ff5369;
+}
+
+/* =========================================
+   TABLET Y TELÉFONO
+========================================= */
+
+@media (max-width: 950px) {
+
+    .heart-stage {
+        height: auto;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #canvas {
+        width: 100%;
+        height: min(75vh, 650px);
+        height: min(75dvh, 650px);
+        flex: none;
+    }
+
+    .love-note {
+        position: static;
+        top: auto;
+        width: min(92%, 650px);
+        margin: 0 auto;
+        padding: 20px;
+        transform: translateY(20px);
+    }
+
+    .love-note.show {
+        transform: translateY(0);
+    }
+
+    .love-note h2 {
+        font-size: 22px;
+    }
+
+    .love-note p {
+        font-size: 15px;
+        line-height: 1.85;
+    }
+
+    .controls {
+        padding-bottom: max(30px, env(safe-area-inset-bottom));
+    }
+}
+
+@media (max-width: 600px) {
+
+    #canvas {
+        height: min(70vh, 480px);
+        height: min(70dvh, 480px);
+        min-height: 270px;
+    }
+
+    .cover-content {
+        padding-top: 15px;
+    }
+
+    .cover-content h1 {
+        font-size: 32px;
+    }
+
+    #coverImage {
+        width: clamp(220px, 84vw, 285px);
+        max-height: 38dvh;
+    }
+
+    .love-note {
+        padding: 18px 15px;
+    }
+
+    .love-note h2 {
+        font-size: 21px;
+    }
+
+    .love-note p {
+        font-size: 14px;
+    }
+
+    .controls {
+        gap: 10px;
+    }
+
+    .controls button {
+        min-width: 125px;
+        padding: 11px 15px;
+        font-size: 12px;
+    }
+}
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.45;
+    }
+
+    80% {
+        opacity: 0.35;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+@keyframes coverAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow: 0 0 16px #ff416c66;
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px #ff416cbb,
+            0 0 42px #ff416c44;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-hearts span,
+    #openGiftBtn,
+    .cover-content {
+        animation: none;
+    }
+}
+</style>
+</head>
+
+<body class="cover-active">
+
+<!-- PORTADA -->
+
+<div id="coverPage">
+
+    <div class="floating-hearts">
+        <span>❤️</span>
+        <span>♥</span>
+        <span>❤️</span>
+        <span>♥</span>
+        <span>❤️</span>
+        <span>♥</span>
+    </div>
+
+    <div class="cover-content">
+
+        <div class="cover-small-title">
+            NUESTRA HISTORIA DE AMOR
+        </div>
+
+        <h1>
+            ¡Feliz Primer
+            <span>Aniversario! ❤️</span>
+        </h1>
+
+        <p class="cover-subtitle">
+            Un año de momentos inolvidables,
+            sonrisas y muchísimo amor.
+        </p>
+
+        <div class="photo-frame">
+            <img
+                id="coverImage"
+                src="couple.jpg"
+                alt="Nuestra foto juntos"
+            >
+            <div class="photo-heart">❤️</div>
+        </div>
+
+        <div class="anniversary-count">
+            365 días juntos
+        </div>
+
+        <p class="anniversary-message">
+            Y todavía nos quedan miles de recuerdos por crear.
+        </p>
+
+        <button id="openGiftBtn">
+            🎁 Abre tu regalo ❤️
+        </button>
+
+    </div>
+
+</div>
+
+<!-- EXPERIENCIA PRINCIPAL -->
+
+<div id="mainPage">
+
+    <div class="heart-stage">
+
+        <canvas id="canvas"></canvas>
+
+        <div id="loveNote" class="love-note">
+            <h2>Para Ti, Siempre ❤️</h2>
+            <p>
+                No importa el idioma,
+                ni la distancia,<br>
+                cada forma de decir
+                "te amo" significa lo mismo.<br>
+                Y cada una de ellas
+                es para ti. ❤️
+            </p>
+        </div>
+
+        <div id="rightLoveNote" class="love-note">
+            <h2>Mi Lugar Favorito ❤️</h2>
+            <p>
+                De todas las casualidades
+                de la vida,<br>
+                mi favorita siempre será
+                haberte encontrado.
+                <br><br>
+                Porque no importa cuántas
+                veces te diga que te amo,<br>
+                nunca serán suficientes
+                para expresar todo
+                lo que siento por ti.
+                <br><br>
+                Y si pudiera elegir
+                de nuevo,<br>
+                te elegiría a ti,
+                una y mil veces más. ❤️
+            </p>
+        </div>
+
+    </div>
+
+    <div class="controls">
+        <button id="replay">Repetir ❤️</button>
+        <button id="musicButton">♫ Reproducir música</button>
+    </div>
+
+</div>
+
+<audio id="backgroundMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// ==========================================
+// CONFIGURACIÓN
+// ==========================================
+
+const WORD_DELAY = 190;
+const FADE_DURATION = 950;
+const WORD_GAP = 7;
+const ROW_GAP = 7;
+const HEART_WIDTH = 0.88;
+const HEART_HEIGHT = 0.82;
+
+// ==========================================
+// ELEMENTOS
+// ==========================================
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+const coverPage = document.getElementById("coverPage");
+const mainPage = document.getElementById("mainPage");
+const openGiftBtn = document.getElementById("openGiftBtn");
+
+const loveNote = document.getElementById("loveNote");
+const rightLoveNote = document.getElementById("rightLoveNote");
+
+const backgroundMusic = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
+
+let W = 0;
+let H = 0;
+let words = [];
+let polygon = [];
+let frame = null;
+let startTime = null;
+let noteTimer = null;
+let giftOpened = false;
+let musicStarted = false;
+let resizeTimer = null;
+
+// ==========================================
+// FRASES
+// ==========================================
+
+const phrases = [
+    "I love you",
+    "Te amo",
+    "Je t'aime",
+    "Ich liebe dich",
+    "Ti amo",
+    "Eu te amo",
+    "Seni seviyorum",
+    "Я тебя люблю",
+    "愛してる",
+    "사랑해",
+    "我爱你",
+    "Ik hou van jou",
+    "Σ' αγαπώ",
+    "Jag älskar dig",
+    "Anh yêu em",
+    "Aku cinta kamu",
+    "Kocham cię",
+    "मैं तुमसे प्यार करता हूँ",
+    "ฉันรักเธอ",
+    "Mahal kita"
+];
+
+const colors = [
+    "#ff493f",
+    "#ff5147",
+    "#ff6358",
+    "#ff766c",
+    "#ff443b"
+];
+
+// ==========================================
+// ECUACIÓN ORIGINAL DEL CORAZÓN
+// ==========================================
+
+function heart(t) {
+    const x = 16 * Math.pow(Math.sin(t), 3);
+
+    const y =
+        13 * Math.cos(t)
+        - 5 * Math.cos(2 * t)
+        - 2 * Math.cos(3 * t)
+        - Math.cos(4 * t);
+
+    return { x, y };
+}
+
+// ==========================================
+// CREAR CONTORNO
+// ==========================================
+
+function createHeartOutline() {
+    polygon = [];
+
+    const scale = Math.min(
+        W * HEART_WIDTH / 32,
+        H * HEART_HEIGHT / 30
+    );
+
+    const centerX = W / 2;
+    const centerY = H / 2 - 10;
+
+    for (let t = Math.PI; t <= Math.PI * 3; t += 0.008) {
+        const p = heart(t);
+
+        polygon.push({
+            x: centerX + p.x * scale,
+            y: centerY - p.y * scale
+        });
+    }
+}
+
+// ==========================================
+// DENTRO DEL CORAZÓN
+// ==========================================
+
+function insideHeart(x, y) {
+    let inside = false;
+
+    for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+        const a = polygon[i];
+        const b = polygon[j];
+
+        const intersects =
+            ((a.y > y) !== (b.y > y)) &&
+            (x < (b.x - a.x) * (y - a.y) / (b.y - a.y) + a.x);
+
+        if (intersects) {
+            inside = !inside;
+        }
+    }
+
+    return inside;
+}
+
+// ==========================================
+// INTERVALOS HORIZONTALES
+// ==========================================
+
+function getRowIntervals(y) {
+    const crossings = [];
+
+    for (let i = 0; i < polygon.length; i++) {
+        const a = polygon[i];
+        const b = polygon[(i + 1) % polygon.length];
+
+        if ((a.y <= y && b.y > y) || (b.y <= y && a.y > y)) {
+            const x =
+                a.x + (y - a.y) * (b.x - a.x) / (b.y - a.y);
+
+            crossings.push(x);
+        }
+    }
+
+    crossings.sort((a, b) => a - b);
+
+    const intervals = [];
+
+    for (let i = 0; i + 1 < crossings.length; i += 2) {
+        intervals.push([crossings[i], crossings[i + 1]]);
+    }
+
+    return intervals;
+}
+
+// ==========================================
+// FUENTE
+// ==========================================
+
+function setFont(size) {
+    ctx.font = `bold ${size}px Arial, "Noto Sans", sans-serif`;
+}
+
+function measure(text, size) {
+    setFont(size);
+    return ctx.measureText(text).width;
+}
+
+// ==========================================
+// AJUSTE DE PALABRA
+// ==========================================
+
+function wordFits(x, y, width, height) {
+    const left = x - width / 2 - 2;
+    const right = x + width / 2 + 2;
+    const top = y - height / 2;
+    const bottom = y + height / 2;
+
+    for (let i = 0; i <= 5; i++) {
+        const px = left + (right - left) * i / 5;
+
+        if (!insideHeart(px, top)) return false;
+        if (!insideHeart(px, bottom)) return false;
+    }
+
+    return true;
+}
+
+function overlaps(candidate) {
+    for (const existing of words) {
+        const horizontal =
+            Math.abs(candidate.x - existing.x) <
+            (candidate.width + existing.width) / 2 + WORD_GAP;
+
+        const vertical =
+            Math.abs(candidate.y - existing.y) <
+            (candidate.height + existing.height) / 2 + ROW_GAP;
+
+        if (horizontal && vertical) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+// ==========================================
+// CONSTRUIR CORAZÓN COMO EL ORIGINAL
+// SIN HUECO EN EL CENTRO
+// ==========================================
+
+function buildWords() {
+    words = [];
+
+    const smallScreen = W < 600;
+    const fontSize = smallScreen ? 9 : 13;
+    const minFont = smallScreen ? 7 : 10;
+    const lineHeight = fontSize * 1.35 + ROW_GAP;
+
+    const top = Math.min(...polygon.map(p => p.y));
+    const bottom = Math.max(...polygon.map(p => p.y));
+
+    let phraseIndex = 0;
+
+    for (let y = top + fontSize; y < bottom - fontSize; y += lineHeight) {
+        const intervals = getRowIntervals(y);
+
+        for (const [left, right] of intervals) {
+            let x = left + 3;
+
+            while (x < right - 3) {
+                let placed = false;
+
+                for (let attempt = 0; attempt < 30; attempt++) {
+                    const phrase =
+                        phrases[(phraseIndex + attempt) % phrases.length];
+
+                    let size = fontSize - (attempt % 4);
+                    size = Math.max(minFont, size);
+
+                    const width = measure(phrase, size);
+                    const centerX = x + width / 2;
+
+                    if (centerX + width / 2 > right - 3) {
+                        continue;
+                    }
+
+                    const word = {
+                        x: centerX,
+                        y: y,
+                        text: phrase,
+                        size: size,
+                        width: width,
+                        height: size * 1.35,
+                        color: colors[Math.floor(Math.random() * colors.length)],
+                        order: 0,
+                        edgeDistance: Infinity,
+                        edgeProgress: 0
+                    };
+
+                    if (!wordFits(centerX, y, width, size * 1.35)) {
+                        continue;
+                    }
+
+                    if (overlaps(word)) {
+                        continue;
+                    }
+
+                    words.push(word);
+                    x += width + WORD_GAP;
+                    phraseIndex++;
+                    placed = true;
+                    break;
+                }
+
+                if (!placed) {
+                    x += 5;
+                }
+            }
+        }
+    }
+
+    // ORDEN DE ANIMACIÓN:
+    // primero borde, luego interior,
+    // siguiendo el recorrido del corazón
+    const outlineSamples = polygon.filter((_, index) => index % 3 === 0);
+
+    for (const word of words) {
+        let bestDistance = Infinity;
+        let bestIndex = 0;
+
+        for (let i = 0; i < outlineSamples.length; i++) {
+            const p = outlineSamples[i];
+            const d = Math.hypot(word.x - p.x, word.y - p.y);
+
+            if (d < bestDistance) {
+                bestDistance = d;
+                bestIndex = i;
+            }
+        }
+
+        word.edgeDistance = bestDistance;
+        word.edgeProgress = bestIndex / outlineSamples.length;
+    }
+
+    const layerThickness = smallScreen ? 14 : 20;
+
+    words.forEach(word => {
+        word.layer = Math.floor(word.edgeDistance / layerThickness);
+    });
+
+    words.sort((a, b) => {
+        if (a.layer !== b.layer) {
+            return a.layer - b.layer;
+        }
+
+        return a.edgeProgress - b.edgeProgress;
+    });
+
+    words.forEach((word, index) => {
+        word.order = index;
+    });
+}
+
+// ==========================================
+// DIBUJAR
+// ==========================================
+
+function drawWord(word, opacity) {
+    ctx.save();
+
+    ctx.globalAlpha = opacity;
+    setFont(word.size);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = word.color;
+    ctx.shadowColor = "#ff3025";
+    ctx.shadowBlur = 3;
+
+    ctx.fillText(word.text, word.x, word.y);
+
+    ctx.restore();
+}
+
+function ease(t) {
+    return 1 - Math.pow(1 - t, 3);
+}
+
+// ==========================================
+// ANIMACIÓN
+// ==========================================
+
+function animate(time) {
+    if (startTime === null) {
+        startTime = time;
+    }
+
+    const elapsed = time - startTime;
+
+    ctx.clearRect(0, 0, W, H);
+
+    let active = false;
+
+    for (const word of words) {
+        const appearTime = word.order * WORD_DELAY;
+        const progress = (elapsed - appearTime) / FADE_DURATION;
+
+        if (progress <= 0) {
+            active = true;
+            continue;
+        }
+
+        const opacity = ease(Math.min(1, progress));
+        drawWord(word, opacity);
+
+        if (progress < 1) {
+            active = true;
+        }
+    }
+
+    if (active) {
+        frame = requestAnimationFrame(animate);
+    } else {
+        frame = null;
+        showFinalNotes();
+    }
+}
+
+// ==========================================
+// MOSTRAR NOTAS
+// ==========================================
+
+function showFinalNotes() {
+    clearTimeout(noteTimer);
+
+    noteTimer = setTimeout(() => {
+        loveNote.classList.add("show");
+        rightLoveNote.classList.add("show");
+    }, 1500);
+}
+
+// ==========================================
+// REPETIR
+// ==========================================
+
+function replay() {
+    if (!giftOpened) return;
+
+    if (frame !== null) {
+        cancelAnimationFrame(frame);
+    }
+
+    clearTimeout(noteTimer);
+
+    loveNote.classList.remove("show");
+    rightLoveNote.classList.remove("show");
+
+    startTime = null;
+    ctx.clearRect(0, 0, W, H);
+
+    frame = requestAnimationFrame(animate);
+}
+
+// ==========================================
+// RESIZE
+// ==========================================
+
+function resize() {
+    if (!giftOpened) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const newW = Math.max(1, rect.width);
+    const newH = Math.max(1, rect.height);
+
+    W = newW;
+    H = newH;
+
+    const dpr = Math.min(window.devicePixelRatio || 1, 3);
+
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    createHeartOutline();
+    buildWords();
+    replay();
+}
+
+// ==========================================
+// MÚSICA
+// ==========================================
+
+backgroundMusic.volume = 0.5;
+
+async function startMusic() {
+    if (musicStarted) return;
+
+    try {
+        await backgroundMusic.play();
+        musicStarted = true;
+        musicButton.textContent = "♫ Pausar música";
+    } catch (error) {
+        musicButton.textContent = "♫ Reproducir música";
+    }
+}
+
+musicButton.addEventListener("click", async () => {
+    if (backgroundMusic.paused) {
+        try {
+            await backgroundMusic.play();
+            musicStarted = true;
+            musicButton.textContent = "♫ Pausar música";
+        } catch (error) {
+            musicButton.textContent = "♫ Reproducir música";
+        }
+    } else {
+        backgroundMusic.pause();
+        musicStarted = true;
+        musicButton.textContent = "♫ Reproducir música";
+    }
+});
+
+// ==========================================
+// ABRIR REGALO
+// ==========================================
+
+openGiftBtn.addEventListener("click", () => {
+    if (giftOpened) return;
+
+    giftOpened = true;
+
+    startMusic();
+
+    mainPage.classList.add("open");
+    coverPage.classList.add("hidden");
+    document.body.classList.remove("cover-active");
+
+    window.scrollTo(0, 0);
+
+    setTimeout(() => {
+        resize();
+    }, 50);
+});
+
+// ==========================================
+// BOTÓN REPETIR
+// ==========================================
+
+document.getElementById("replay")
+    .addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        replay();
+    });
+
+// ==========================================
+// EVENTOS
+// ==========================================
+
+window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 150);
+});
+
+window.addEventListener("orientationchange", () => {
+    setTimeout(resize, 350);
+});
+
+document.fonts.ready.then(() => {
+    if (giftOpened) {
+        resize();
+    }
+});
+</script>
+</body>
+</html>
